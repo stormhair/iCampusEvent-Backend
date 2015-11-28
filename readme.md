@@ -2,6 +2,36 @@
 CSCI587 Course Porject - iCampusEvents
 # Requirements
 # Crawler
+The crawler is run once every day. Actually it submits a query to _www.usc.edu/calendar?c=Search_, seaching all the new events from now to one month ahead. A events hash table is used to avoid inserting duplicate events into the database.
+
+|Name          |Description                                                      |
+|--------------|-----------------------------------------------------------------|
+|crawler.php   |reguarly submits search queries                                  |
+|save_to_db.php|called by crawler.php, convert format to insert into the database|
+
+# Database
+All the events are stored in the database. There are 2 tables: _events_ and _locations_. The columns in each table are shown below:
+
+**Events**
+|Column         |Description                                |
+|---------------|-------------------------------------------|
+|event_id       |it is the number at the end of the page url|
+|event_title    |                                           |
+|event_subtitle |                                           |
+|start_timestamp|unix timestamp of the start time           |
+|end_timestamp  |-1 means that no end time is provided      |
+|location       |location id in the table _locations_       |
+|page_url       |url of the event page                      |
+|image_url      |url of the image, maybe null               |
+
+**Locations**
+|Column       |Description                             |
+|-------------|----------------------------------------|
+|location_id  |primary key of the location in the table|
+|location_name|                                        |
+|lat          |latitude, float                         |
+|lng          |longitude, float                        |
+
 # APIs
 ####get_all_events
 Return all the events in the database
