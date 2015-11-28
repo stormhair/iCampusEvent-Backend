@@ -13,6 +13,7 @@ Return all the events held after a specific time stamp, the parameter _start_tim
 Return all the events that are related to the given keyword, the parameter _keyword_ must be provided
 #####Return Value
 Query results are returned in JSON. If a query is performed successfully, the result usually has two fields - _error_code_(usually 0, means OK) and _events_ (the campus events satisfied to the submitted constrains). A normal _event_ usually has below fields:
+
 |Name             |Description                                        |
 |-----------------|---------------------------------------------------|
 |_event_title_    |                                                   |
