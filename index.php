@@ -30,6 +30,58 @@ if(isset($_GET['action'])) {
 				echo_error(PARAMETER_NOT_SET);
 			}
 			break;
+		case 'get_events_keyword_location_within_one_day':
+			if(isset($_GET['keyword']) and isset($_GET['location'])) {
+				$keyword = $_GET['keyword'];
+				$location = $_GET['location'];
+				Controller::get_events_keyword_location_within_one_day($keyword, $location);
+			}
+			else {
+				echo_error(PARAMETER_NOT_SET);
+			}
+			break;
+		case 'get_events_keyword_location_within_one_week':
+			if(isset($_GET['keyword']) and isset($_GET['location'])) {
+				$keyword = $_GET['keyword'];
+				$location = $_GET['location'];
+				Controller::get_events_keyword_location_within_one_week($keyword, $location);
+			}
+			else {
+				echo_error(PARAMETER_NOT_SET);
+			}
+			break;
+		case 'get_events_keyword_location_within_one_month':
+			if(isset($_GET['keyword']) and isset($_GET['location'])) {
+				$keyword = $_GET['keyword'];
+				$location = $_GET['location'];
+				Controller::get_events_keyword_location_within_one_month($keyword, $location);
+			}
+			else {
+				echo_error(PARAMETER_NOT_SET);
+			}
+			break;
+		case 'get_events_at':
+			if(isset($_GET['location'])) {
+				$location = $_GET['location'];
+				Controller::get_events_at($location);
+			}
+			else {
+				echo_error(PARAMETER_NOT_SET);
+			}
+			break;
+		case 'get_events_keyword_location':
+			if(isset($_GET['keyword']) and isset($_GET['location'])) {
+				$keyword = $_GET['keyword'];
+				$location = $_GET['location'];
+				Controller::get_events_keyword_location($keyword, $location);
+			}
+			else {
+				echo_error(PARAMETER_NOT_SET);
+			}
+			break;
+		case 'test':
+			Controller::test();
+			break;
 		default:
 			# code...
 			echo_error(ACTION_NOT_EXIST);
